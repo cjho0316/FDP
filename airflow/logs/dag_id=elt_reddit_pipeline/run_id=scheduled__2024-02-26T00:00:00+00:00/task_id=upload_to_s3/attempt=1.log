@@ -1,0 +1,58 @@
+[2024-02-27 13:48:59,269] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: elt_reddit_pipeline.upload_to_s3 scheduled__2024-02-26T00:00:00+00:00 [queued]>
+[2024-02-27 13:48:59,274] {taskinstance.py:1159} INFO - Dependencies all met for <TaskInstance: elt_reddit_pipeline.upload_to_s3 scheduled__2024-02-26T00:00:00+00:00 [queued]>
+[2024-02-27 13:48:59,274] {taskinstance.py:1356} INFO - 
+--------------------------------------------------------------------------------
+[2024-02-27 13:48:59,274] {taskinstance.py:1357} INFO - Starting attempt 1 of 2
+[2024-02-27 13:48:59,274] {taskinstance.py:1358} INFO - 
+--------------------------------------------------------------------------------
+[2024-02-27 13:48:59,281] {taskinstance.py:1377} INFO - Executing <Task(BashOperator): upload_to_s3> on 2024-02-26 00:00:00+00:00
+[2024-02-27 13:48:59,284] {standard_task_runner.py:52} INFO - Started process 75 to run task
+[2024-02-27 13:48:59,286] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'elt_reddit_pipeline', 'upload_to_s3', 'scheduled__2024-02-26T00:00:00+00:00', '--job-id', '4', '--raw', '--subdir', 'DAGS_FOLDER/elt_reddit_pipeline.py', '--cfg-path', '/tmp/tmpgp2vr18k', '--error-file', '/tmp/tmpgej9tky8']
+[2024-02-27 13:48:59,287] {standard_task_runner.py:80} INFO - Job 4: Subtask upload_to_s3
+[2024-02-27 13:48:59,318] {task_command.py:370} INFO - Running <TaskInstance: elt_reddit_pipeline.upload_to_s3 scheduled__2024-02-26T00:00:00+00:00 [running]> on host b04c3dbb7699
+[2024-02-27 13:48:59,355] {taskinstance.py:1571} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=elt_reddit_pipeline
+AIRFLOW_CTX_TASK_ID=upload_to_s3
+AIRFLOW_CTX_EXECUTION_DATE=2024-02-26T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2024-02-26T00:00:00+00:00
+[2024-02-27 13:48:59,355] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2024-02-27 13:48:59,356] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'python /opt/***/extraction/upload_aws_s3_etl.py 20240227']
+[2024-02-27 13:48:59,362] {subprocess.py:85} INFO - Output:
+[2024-02-27 13:48:59,873] {subprocess.py:92} INFO - Traceback (most recent call last):
+[2024-02-27 13:48:59,873] {subprocess.py:92} INFO -   File "/opt/***/extraction/upload_aws_s3_etl.py", line 73, in <module>
+[2024-02-27 13:48:59,873] {subprocess.py:92} INFO -     main()
+[2024-02-27 13:48:59,873] {subprocess.py:92} INFO -   File "/opt/***/extraction/upload_aws_s3_etl.py", line 35, in main
+[2024-02-27 13:48:59,873] {subprocess.py:92} INFO -     create_bucket_if_not_exists(conn)
+[2024-02-27 13:48:59,873] {subprocess.py:92} INFO -   File "/opt/***/extraction/upload_aws_s3_etl.py", line 53, in create_bucket_if_not_exists
+[2024-02-27 13:48:59,873] {subprocess.py:92} INFO -     conn.meta.client.head_bucket(Bucket=BUCKET_NAME)
+[2024-02-27 13:48:59,873] {subprocess.py:92} INFO -   File "/home/***/.local/lib/python3.7/site-packages/botocore/client.py", line 508, in _api_call
+[2024-02-27 13:48:59,873] {subprocess.py:92} INFO -     return self._make_api_call(operation_name, kwargs)
+[2024-02-27 13:48:59,873] {subprocess.py:92} INFO -   File "/home/***/.local/lib/python3.7/site-packages/botocore/client.py", line 875, in _make_api_call
+[2024-02-27 13:48:59,874] {subprocess.py:92} INFO -     api_params, operation_model, context=request_context
+[2024-02-27 13:48:59,874] {subprocess.py:92} INFO -   File "/home/***/.local/lib/python3.7/site-packages/botocore/client.py", line 933, in _convert_to_request_dict
+[2024-02-27 13:48:59,874] {subprocess.py:92} INFO -     api_params, operation_model, context
+[2024-02-27 13:48:59,874] {subprocess.py:92} INFO -   File "/home/***/.local/lib/python3.7/site-packages/botocore/client.py", line 969, in _emit_api_params
+[2024-02-27 13:48:59,874] {subprocess.py:92} INFO -     context=context,
+[2024-02-27 13:48:59,874] {subprocess.py:92} INFO -   File "/home/***/.local/lib/python3.7/site-packages/botocore/hooks.py", line 412, in emit
+[2024-02-27 13:48:59,874] {subprocess.py:92} INFO -     return self._emitter.emit(aliased_event_name, **kwargs)
+[2024-02-27 13:48:59,874] {subprocess.py:92} INFO -   File "/home/***/.local/lib/python3.7/site-packages/botocore/hooks.py", line 256, in emit
+[2024-02-27 13:48:59,874] {subprocess.py:92} INFO -     return self._emit(event_name, kwargs)
+[2024-02-27 13:48:59,874] {subprocess.py:92} INFO -   File "/home/***/.local/lib/python3.7/site-packages/botocore/hooks.py", line 239, in _emit
+[2024-02-27 13:48:59,874] {subprocess.py:92} INFO -     response = handler(**kwargs)
+[2024-02-27 13:48:59,874] {subprocess.py:92} INFO -   File "/home/***/.local/lib/python3.7/site-packages/botocore/handlers.py", line 276, in validate_bucket_name
+[2024-02-27 13:48:59,874] {subprocess.py:92} INFO -     raise ParamValidationError(report=error_msg)
+[2024-02-27 13:48:59,875] {subprocess.py:92} INFO - botocore.exceptions.ParamValidationError: Parameter validation failed:
+[2024-02-27 13:48:59,875] {subprocess.py:92} INFO - Invalid bucket name ""janghodashboardbucket"": Bucket name must match the regex "^[a-zA-Z0-9.\-_]{1,255}$" or be an ARN matching the regex "^arn:(aws).*:(s3|s3-object-lambda):[a-z\-0-9]*:[0-9]{12}:accesspoint[/:][a-zA-Z0-9\-.]{1,63}$|^arn:(aws).*:s3-outposts:[a-z\-0-9]+:[0-9]{12}:outpost[/:][a-zA-Z0-9\-]{1,63}[/:]accesspoint[/:][a-zA-Z0-9\-]{1,63}$"
+[2024-02-27 13:48:59,911] {subprocess.py:96} INFO - Command exited with return code 1
+[2024-02-27 13:48:59,925] {taskinstance.py:1889} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 195, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2024-02-27 13:48:59,927] {taskinstance.py:1400} INFO - Marking task as UP_FOR_RETRY. dag_id=elt_reddit_pipeline, task_id=upload_to_s3, execution_date=20240226T000000, start_date=20240227T134859, end_date=20240227T134859
+[2024-02-27 13:48:59,933] {standard_task_runner.py:97} ERROR - Failed to execute job 4 for task upload_to_s3 (Bash command failed. The command returned a non-zero exit code 1.; 75)
+[2024-02-27 13:48:59,955] {local_task_job.py:156} INFO - Task exited with return code 1
+[2024-02-27 13:48:59,978] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
